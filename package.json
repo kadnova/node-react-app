@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --mode development --open",
+    "start": "webpack-dev-server --open  && node ./server/index.js",
     "build": "webpack --mode production"
   },
   "author": "alina",
@@ -25,6 +25,7 @@
     "lodash": "latest",
     "mongoose": "^5.4.0",
     "node-sass": "^4.8.3",
+    "qs": "^6.6.0",
     "redux-actions": "^2.6.4",
     "reselect": "^4.0.0",
     "sass-loader": "^6.0.7",

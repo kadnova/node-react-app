@@ -1,13 +1,17 @@
-import express from 'express';
-import {fetchElemInnerText, fetchHtmlFromUrl} from '../helpers';
+const express = require('express');
+const fetchHtmlFromUrl = require('../helpers');
+const fetchElemInnerText = require('../helpers');
 const Article = require('../models/article.model');
+const axios = require('axios');
+
 
 let router = express.Router();
+
 
 router.get('/fetch', function(req, res, next) {
     let articleURL = req.query.articleURL;
 
-    let $ = fetchHtmlFromUrl(articleURL);
+    let $ = fetchHtmlFromUrl(articleURL); // fetchHtmlFromUrl is not a function. idkw
 
     const title = fetchElemInnerText($('.headline'));
 
@@ -33,6 +37,11 @@ router.post('/', async function (req, res, next) {
         user_suggestion: body.user_suggestion
     });
 
+    article.save()
+        .then(article => {
+            res.json(article)
+        })
+        .catch(next)
 
 });
 

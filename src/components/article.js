@@ -3,7 +3,7 @@ import Paragraph from './paragraph';
 
 class Article extends Component {
     render () {
-        const {article, url} = this.props;
+        const {url, title, paragraphs} = this.props;
         return (
             <div>
                 <p>
